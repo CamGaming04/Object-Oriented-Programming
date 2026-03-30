@@ -50,6 +50,9 @@ void Menu::browseMenu()
 	int input = 0;
 	int input1 = 0;
 	int authNum = 0;
+	int idInput = 0;
+	int borrowedInp = 0;
+	int reservedInp = 0;
 	string authInp;
 	string titleInput;
 	Book* book = nullptr;
@@ -70,8 +73,55 @@ void Menu::browseMenu()
 		//show all books (in ID order)
 		for (Book* book : mLibrary->bookList)
 		{
-			cout << book->title << endl << book->author << endl << book->genre << endl << endl;
+			cout << book->title << endl << book->author << endl << book->genre << endl << book->id << endl << endl;
 		}
+			cout << "Please input the ID of the book you are interested in" << endl;
+			cin >> idInput;
+			for (Book* book : mLibrary->bookList)
+			{
+				if (book->id == idInput)
+				{
+					if (book->borrowed == true)
+					{
+						cout << "Book is currently borrowed. Would you like to be added to the waiting list?" << endl;
+						cout << "1. Yes" << endl;
+						cout << "2. No" << endl;
+						cin >> borrowedInp;
+						switch (borrowedInp)
+						{
+						case 1:
+							book->addBorrowedList(mLibrary->currentUser);
+							break;
+						case 2:
+							break;
+						default:
+							cout << "Please input 1 or 2" << endl;
+						}
+					}
+					else
+					{
+						cout << "Book is not currently borrowed. Would you like to take it out or reserve it?" << endl;
+						cout << "1. Take Out Book" << endl;
+						cout << "2. Reserve Book" << endl;
+						cout << "3. Go Back" << endl;
+						cin >> reservedInp;
+						switch (reservedInp)
+						{
+						case 1:
+							mLibrary->currentUser->takeOutBook(book->id);
+							cout << "Book taken out successfully" << endl;
+							break;
+						case 2:
+							book->addReservedList(mLibrary->currentUser);
+							break;
+						case 3:
+							break;
+						default:
+							cout << "Please input 1, 2 or 3" << endl;
+						}
+					}
+				}
+			}
 		break;
 	case 2:
 		//show all authors, show books by chosen author
@@ -123,7 +173,7 @@ void Menu::browseMenu()
 			switch (input1)
 			{
 			case 1:
-				mLibrary->currentUser->takeOutBook(book->title);
+				mLibrary->currentUser->takeOutBook(book->id);
 				break;
 			case 2:
 				break;
@@ -135,7 +185,7 @@ void Menu::browseMenu()
 		}
 		break;
 	default:
-		cout << "Please input 1, 2, 3, 4 or 5" << endl;
+		cout << "Please input 1, 2, 3, 4, 5 or 6" << endl;
 	}
 }
 

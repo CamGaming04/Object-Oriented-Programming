@@ -20,6 +20,7 @@ public:
 	void addUser(const User& userList);
 	void setCurrentUser(User* user);
 	User* findUser(string accName);
+	void getUserBookList(User* user);
 	Book* findBookTitle(string bookTitle);
 	void createUser();
 	void addBook();

@@ -69,6 +69,20 @@ User* Library::findUser(string accName)
 	}
 }
 
+void Library::getUserBookList(User* user)
+{
+    for (int book : user->bookList)
+    {
+        for (Book* bookP : bookList)
+        {
+            if (book == bookP->id)
+            {
+                cout << bookP->title << endl << bookP->author << endl << bookP->genre << endl << endl;
+            }
+        }
+    }
+}
+
 Book* Library::findBookTitle(string bookTitle)
 {
     for (Book* book : bookList)

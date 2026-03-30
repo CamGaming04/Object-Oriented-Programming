@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 
-
 using namespace std;
 
 class User 
@@ -12,8 +11,10 @@ public:
 	string forename, surname, accountName, password, userID;
 	int location, bookLimit;
 	char first_char;
+	vector<int> bookList;
+	int bookLocation = 0;
 
-	void takeOutBook(string bookTitle);
+	void takeOutBook(int bookID);
 
 	void returnBook();
 
