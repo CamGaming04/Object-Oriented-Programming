@@ -271,7 +271,7 @@ void Menu::librarianMenu()
 	string accname;
 	string pass;
 	cout << "What would you like to do?" << endl;
-	cout << "1. Add User" << endl << "2. Add Author" << endl << "3. Add Book" << endl << "4. Remove Account" << endl << "5. Remove Author" << endl << "6. Remove Book" << endl << "7. Promote User" << endl <<"8. Check Late Fees" << endl << "9. Check Reservations" << endl << "10. Go Back" << endl;
+	cout << "1. Add User" << endl << "2. Add Author" << endl << "3. Add Book" << endl << "4. Remove Account" << endl << "5. Remove Author" << endl << "6. Remove Book" << endl << "7. Promote Account" << endl <<"8. Check Late Fees" << endl << "9. Check Reservations" << endl << "10. Go Back" << endl;
 	cin >> input;
 	switch (input)
 	{

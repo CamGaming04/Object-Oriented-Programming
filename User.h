@@ -8,8 +8,8 @@ using namespace std;
 class User 
 {
 public:
-	string forename, surname, accountName, password, userID;
-	int location, bookLimit, accessLevel;
+	string forename, surname, accountName, password;
+	int location, bookLimit, accessLevel, userID;
 	double lateCharges;
 	char first_char;
 	vector<int> bookList;
@@ -17,9 +17,7 @@ public:
 
 	void takeOutBook(int bookID);
 
-	void returnBook();
 
-	void reserveBook();
 
 	//User
 		//checkUserDetails

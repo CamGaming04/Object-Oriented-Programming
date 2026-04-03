@@ -7,15 +7,7 @@ void User::takeOutBook(int bookID)
 	bookLocation += 1;
 }
 
-void User::returnBook()
-{
 
-}
-
-void User::reserveBook()
-{
-
-}
 
 
 
