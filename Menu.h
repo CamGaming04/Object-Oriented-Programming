@@ -19,6 +19,12 @@ public:
 
 	void browseMenu();
 
+	void continueBrowsingMenu();
+
+	void librarianMenu();
+
+	void adminMenu();
+
 	void returnBookMenu();
 
 	void loggedInMenu();

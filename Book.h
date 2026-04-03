@@ -9,11 +9,12 @@ using namespace std;
 class Book
 {
 public:
-	string title, author, genre;
+	string title, genre;
 	int id, reservedSize, borrowedSize;
 	char firstLetter;
 	bool borrowed = false;
 	bool reserved = false;
+	int authorID;
 	vector<User*> borrowedList;
 	vector<User*> reservedList;
 
@@ -21,10 +22,12 @@ public:
 
 	void addBorrowedList(User* activeUser);
 
-	Book(string bTitle, string bAuthor, string bGenre, int bId)
+	Book() = default;
+
+	Book(string bTitle, int bAuthorID, string bGenre, int bId)
 	{
 		title = bTitle;
-		author = bAuthor;
+		authorID = bAuthorID;
 		genre = bGenre;
 		id = bId;
 		reservedSize = 0;
